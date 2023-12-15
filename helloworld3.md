@@ -1,21 +1,18 @@
-// function to generate markdown for README
-function generateMarkdown(data) 
-{
-  const licenses = require("github-licenses");
-    return `
-# ${data.title}
+
+# Hello World    3
 
 ## Description
-${data.description}
+3
 
 
 ## Table of Contents
-- [${data.title.trim()}](#${data.title.trim().split(" ").join("-")})
+- [Hello World    3](#hello-world----3)
   - [Description](#description)
   - [Table of Contents](#table-of-contents)
   - [Installation](#installation)
   - [Usage](#usage)
   - [License](#license)
+  - [Badges](#badges)
   - [Contributions](#contributions)
   - [Tests](#tests)
   - [Questions](#questions)
@@ -23,17 +20,19 @@ ${data.description}
 
 ## Installation
 
-${data.installation}
+3
 
 
 ## Usage
 
-${data.usage}
+f
 
 
 ## License
 
-${licenses[data.license]}
+function APACHE() {
+    return licenses.APACHE;
+}
 
 ## Badges
 
@@ -43,17 +42,13 @@ Badges aren't necessary, per se, but they demonstrate street cred. Badges let ot
 
 ## Contributions
 
-${data.contributions}
+fdgdz
 
 ## Tests
 
-${data.tests}
+g
 
 
 ## Questions
 
-Please send any additional questions to ${data.email}, or visit my GitHub page: https://github.com/${data.github}
-`;
-}
-
-module.exports = generateMarkdown;
+Please send any additional questions to g, or visit my GitHub page: https://github.com/g
