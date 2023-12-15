@@ -10,6 +10,12 @@ As an option, the user can allow for the README.md file to be named based on the
 
 In the future, I would like to include more licenses dynamically. I would also like to account for existing files with the same name as the proposed name for the README.md file, such as perhaps using an alert or appending the file.
 
+Take a look at the application in action!
+
+
+https://github.com/EleniMG/Professional-README-Generator/assets/112894341/291d789f-cc2b-435d-898f-686538a97fa5
+
+
 
 ## Table of Contents
 - [Professional README Generator](#professional-readme-generator)
