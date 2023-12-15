@@ -69,7 +69,7 @@ function writeToFile(fileName, data) {
     // fileName = fs.writeFile( `${questions.title}.md`, generateMarkdown(questions));
     // console.log(`Successfully wrote a markdown file called ${questions.title}`);
     // return fs.writeFile( `${questions.title}.md`, generateMarkdown(questions));
-    
+
 }
 
 // function to initialize program
@@ -77,4 +77,4 @@ const writeFileAsync = util.promisify(fs.writeFile);
 const init = () => inquirer.prompt(questions);
 
 // function call to initialize program
-init().then((questions) => writeFileAsync(writeToFile(), generateMarkdown(questions)))
+init().then((questions) => writeFileAsync(`${questions.title}.md`, generateMarkdown(questions)))

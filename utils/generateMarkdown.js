@@ -1,6 +1,11 @@
 // function to generate markdown for README
-function generateMarkdown(data) {
-    return `# ${data.title}
+function generateMarkdown(data) 
+{
+  const licenses = require("github-licenses");
+    return `
+    
+
+    # ${data.title}
 
     ## Description
     ${data.description}
@@ -30,7 +35,7 @@ function generateMarkdown(data) {
     
     ## License
     
-    ${data.license}
+    ${licenses[data.license]}
     
     ## Badges
     
