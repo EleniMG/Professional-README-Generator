@@ -63,9 +63,7 @@ function writeToFile(fileName, data) {
 }
 
 // function to initialize program
-function init() {
-
-}
+const init = () => inquirer.prompt(questions)
 
 // function call to initialize program
 init();
