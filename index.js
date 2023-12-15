@@ -4,7 +4,6 @@ const inquirer = require("inquirer");
 const licenses = require("github-licenses");
 const util = require('util');
 
-// const licensesArray = Object.keys(licenses);
  const licensesArray = [
     {
         name: "None",
@@ -99,14 +98,6 @@ const questions = [
 
 
 const generateMarkdown = require("./utils/generateMarkdown");
-
-// function to write README file
-// function writeToFile(fileName, data) {
-    // fileName = fs.writeFile( `${questions.title}.md`, generateMarkdown(questions));
-    // console.log(`Successfully wrote a markdown file called ${questions.title}`);
-    // return fs.writeFile( `${questions.title}.md`, generateMarkdown(questions));
-
-// }
 
 // function to initialize program
 const writeFileAsync = util.promisify(fs.writeFile);
