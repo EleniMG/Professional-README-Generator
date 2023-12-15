@@ -1,7 +1,8 @@
 const fs = require("fs");
 const path = require('path');
 const inquirer = require("inquirer");
-const licenses = require("github-licenses")
+const licenses = require("github-licenses");
+const shielder = require('shields')
 const generateMarkdown = require("./utils/generateMarkdown");
 
 const licensesArray = Object.keys(licenses)
@@ -63,6 +64,7 @@ const questions = [
 
 // function to write README file
 function writeToFile(fileName, data) {
+
 }
 
 // function to initialize program

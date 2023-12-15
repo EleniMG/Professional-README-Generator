@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "github-licenses": "^3.0.1",
-    "inquirer": "^6.5.2"
+    "inquirer": "^6.5.2",
+    "shields": "^2.1.0"
   }
 }
