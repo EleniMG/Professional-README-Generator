@@ -1,10 +1,10 @@
 // function to generate markdown for README
-function generateMarkdown(data) 
+function generateMarkdown(data, licensesArray) 
 {
-  // ![badmath](https://img.shields.io/badge/License_${data.license})
-  const licenses = require("github-licenses");
+  const matchedLicense = licensesArray.find((license) => data.license === license.name)
+
     return `
-${data}
+${matchedLicense.badge ? matchedLicense.badge : ""}
     
 # ${data.title}
 
@@ -36,7 +36,7 @@ ${data.usage}
 
 ## License
 
-
+${matchedLicense.information}
 
 
 ## Contributions

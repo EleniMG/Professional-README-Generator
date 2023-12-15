@@ -2,12 +2,14 @@ const fs = require("fs");
 const path = require('path');
 const inquirer = require("inquirer");
 const licenses = require("github-licenses");
-const util = require('util')
+const util = require('util');
 
 // const licensesArray = Object.keys(licenses);
-const licensesArray = [
+ const licensesArray = [
     {
-        name: "None"
+        name: "None",
+        badge: null,
+        information: "There is no license applied to this repository."
     },
     {
         name: "Apache License 2.0",
@@ -114,9 +116,12 @@ const init = () => inquirer.prompt(questions);
 
 init()
 .then((questions) => {
-    const fileNameWithoutSpaces = `${questions.title.toLowerCase().trim().split(" ").join("")}`;
+    // My original approach was to take the project name and make this the name of the file
+
+    // const fileNameWithoutSpaces = `${questions.title.toLowerCase().trim().split(" ").join("")}`;
     
-    writeFileAsync(`${fileNameWithoutSpaces}.md`, generateMarkdown(questions));
+    // writeFileAsync(`${fileNameWithoutSpaces}.md`, generateMarkdown(questions, licensesArray));
+
+    writeFileAsync("./generated-readme/README.md", generateMarkdown(questions, licensesArray));
 }
-    
     );
