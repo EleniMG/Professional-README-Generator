@@ -9,6 +9,7 @@
   "author": "Eleni",
   "license": "ISC",
   "dependencies": {
+    "github-licenses": "^3.0.1",
     "inquirer": "^6.5.2"
   }
 }
