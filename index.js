@@ -2,10 +2,48 @@ const fs = require("fs");
 const path = require('path');
 const inquirer = require("inquirer");
 const licenses = require("github-licenses");
-const shielder = require('shields');
 const util = require('util')
 
-const licensesArray = Object.keys(licenses);
+// const licensesArray = Object.keys(licenses);
+const licensesArray = [
+    {
+        name: "None"
+    },
+    {
+        name: "Apache License 2.0",
+        badge: "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)",
+        information: licenses.APACHE()
+        
+    },
+    {
+        name: "BSD 2-Clause",
+        badge: "[![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)",
+        information: licenses.BSD2C()
+        
+    },
+    {
+        name: "BSD 3-Clause",
+        badge: "[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)",
+        information: licenses.BSD3C()
+        
+    },
+    {
+        name: "GNU General Public License v2.0",
+        badge: "[![License: GPL v2](https://img.shields.io/badge/License-GPL_v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)",
+        information: licenses.GPL2()
+        
+    },
+    {
+        name: "MIT License",
+        badge: "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)",
+        information: licenses.MIT()
+        
+    }
+]
+
+const licenseNamesArray = []
+
+licensesArray.forEach((element) => licenseNamesArray.push(element.name))
 
 // array of questions for user
 const questions = [
@@ -19,11 +57,6 @@ const questions = [
     name: 'description',
     message: 'How would you describe your project?'
   },
-//   {
-//     type: 'confirm',
-//     name: 'contents',
-//     message: 'Do you want to include a table of contents?'
-//   },
   {
     type: 'input',
     name: 'installation',
@@ -38,7 +71,7 @@ const questions = [
     type: 'list',
     name: 'license',
     message: 'Please select a license for your project',
-    choices: ["None", ...licensesArray]
+    choices: [...licenseNamesArray]
   },
   {
     type: 'input',
@@ -62,6 +95,7 @@ const questions = [
   }
 ];
 
+
 const generateMarkdown = require("./utils/generateMarkdown");
 
 // function to write README file
@@ -81,7 +115,6 @@ const init = () => inquirer.prompt(questions);
 init()
 .then((questions) => {
     const fileNameWithoutSpaces = `${questions.title.toLowerCase().trim().split(" ").join("")}`;
-    const trimmedFileName = `${questions.title.trim()}`
     
     writeFileAsync(`${fileNameWithoutSpaces}.md`, generateMarkdown(questions));
 }
